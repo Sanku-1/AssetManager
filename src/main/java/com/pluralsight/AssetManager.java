@@ -17,13 +17,19 @@ public class AssetManager {
         assets.add(vehicle1);
 
         for (Asset asset : assets) {
-            System.out.println("\nDescription: " + asset.getDescription());
+            if (asset instanceof Vehicle) {
+                System.out.println("\nThis is a vehicle");
+                System.out.println("Year: " + ((Vehicle) asset).getYear());
+                System.out.println("Make/Model: " + ((Vehicle) asset).getMakeModel());
+                System.out.println("Odometer: " + ((Vehicle) asset).getOdometer());
+            } else if (asset instanceof House) {
+                System.out.println("\nThis is a house");
+                System.out.println("Address: " + ((House) asset).getAddress());
+            }
+            System.out.println("Description: " + asset.getDescription());
             System.out.println("Date Acquired: " + asset.getDateAcquired());
             System.out.println("Original Cost: " + asset.getOriginalCost());
             System.out.println("Current Value: " + asset.getValue());
-
         }
-
-
     }
 }
